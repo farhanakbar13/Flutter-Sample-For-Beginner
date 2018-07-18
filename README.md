@@ -18,9 +18,10 @@ Please use this reference for better understanding
 
 
 
-# Sample Output:
+# Android and iOS Output:
 
-![Sample](screenshot/android_output.png)
+![Android](screenshot/android_output.png) ![iPhone](screenshot/iOS_output.png)
+
 
 ## Getting Started Officially
 
