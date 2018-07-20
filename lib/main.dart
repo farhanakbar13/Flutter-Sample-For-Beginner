@@ -52,15 +52,13 @@ class MyApp extends StatelessWidget {
         home: new Scaffold(
             backgroundColor: Colors.white30,
             appBar: new AppBar(title: new Text("Hello Google!")),
-//            body: new Center(child: new Text("Hello Flutter"))
             body: new FutureBuilder<List<CelebrityInfo>>(
                 future: CelebrityInfo.fetchCelebritiesDetails(),
                 builder: (context, celebs) {
-                  return new Align(
-                      alignment: Alignment.topCenter,
-                      child: new Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: new CelebrityWidget(info: celebs.data[0])));
+                  return new ListView.builder(
+                      itemCount: celebs.data.length,
+                      itemBuilder: (context, index) =>
+                          new CelebrityWidget(info: celebs.data[index], isVisible: true));
                 })));
   }
 }

@@ -21,6 +21,7 @@ Please use this reference for better understanding
 # Android and iOS Output:
 
 ![Android](screenshot/android_output.png) ![iPhone](screenshot/iOS_output.png)
+![ListView](screenshot/listview_sample.png) ![List Detail View](screenshot/list_detail_sample.png)
 
 
 ## Getting Started Officially
