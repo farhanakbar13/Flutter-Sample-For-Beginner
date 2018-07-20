@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/model/CelebrityInfo.dart';
 
 class CelebrityWidget extends StatelessWidget {
+  CelebrityInfo info;
+
+  CelebrityWidget({Key key, this.info}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    debugPrint('@@@@@@' + info.name);
     return new Card(
       elevation: 5.0,
       child: new Column(
@@ -12,20 +18,19 @@ class CelebrityWidget extends StatelessWidget {
             new Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: new Column(children: <Widget>[
-                  new Text('Sundar Pitchai',
+                  new Text(info.name,
                       style:
                           new TextStyle(color: Colors.green, fontSize: 25.0)),
-                  new Text("CEO, Google.Inc",
+                  new Text(info.company,
                       style: new TextStyle(color: Colors.deepOrange)),
-                  new Text('Indian', style: new TextStyle(color: Colors.blue)),
-                  new Image.network(
-                      'https://i0.wp.com/smestreet.in/wp-content/uploads/2017/01/Sundar-Pichai-Google.jpg?fit=200%2C200&amp;ssl=1'),
+                  new Text(info.country,
+                      style: new TextStyle(color: Colors.blue)),
+                  new Image.network(info.url),
                   new Container(
                       decoration:
                           new BoxDecoration(color: Colors.lightGreenAccent),
                       margin: const EdgeInsets.only(top: 15.0, bottom: 5.0),
-                      child: new Text(
-                          getCurrentDateTimeNow().toUtc().toIso8601String(),
+                      child: new Text(getCurrentDateTimeNow(info.dateTime),
                           style: new TextStyle(
                               fontWeight: FontWeight.w900,
                               // The most thick
@@ -53,10 +58,16 @@ class CelebrityWidget extends StatelessWidget {
   }
 
   /// It gives current Date and Time
-  DateTime getCurrentDateTimeNow() {
-    var now = new DateTime.now();
+  String getCurrentDateTimeNow(int millisecondsSinceEpoch) {
+//    var now = new DateTime.now();
+    var now = new DateTime.fromMillisecondsSinceEpoch(millisecondsSinceEpoch);
     debugPrint('CurrentDateTimeNow: $now');
-    return now;
+    String value = now.day.toString() +
+        "/" +
+        now.month.toString() +
+        "/" +
+        now.year.toString();
+    return value;
   }
 
   /// This method used to show the SnackBar

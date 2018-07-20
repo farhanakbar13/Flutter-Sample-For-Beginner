@@ -2,6 +2,7 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_app/CelebrityItem.dart';
+import 'package:flutter_app/model/CelebrityInfo.dart';
 
 void main() {
   debugPaintSizeEnabled =
@@ -40,6 +41,11 @@ class RandomWordsState extends State<RandomWords> {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    new FutureBuilder(
+        future: CelebrityInfo.fetchCelebritiesDetails(),
+        builder: (context, celebs) {
+          debugPrint('test FutureBuilder $celebs');
+        });
     return new MaterialApp(
         title: "My FIrst Flutter",
         theme: new ThemeData(primarySwatch: Colors.brown),
@@ -47,12 +53,14 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.white30,
             appBar: new AppBar(title: new Text("Hello Google!")),
 //            body: new Center(child: new Text("Hello Flutter"))
-            body: new Builder(builder: (BuildContext context) {
-              return new Align(
-                  alignment: Alignment.topCenter,
-                  child: new Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: new CelebrityWidget()));
-            })));
+            body: new FutureBuilder<List<CelebrityInfo>>(
+                future: CelebrityInfo.fetchCelebritiesDetails(),
+                builder: (context, celebs) {
+                  return new Align(
+                      alignment: Alignment.topCenter,
+                      child: new Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: new CelebrityWidget(info: celebs.data[0])));
+                })));
   }
 }
