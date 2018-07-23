@@ -11,6 +11,7 @@ class CelebrityWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     debugPrint('@@@@@@' + info.name);
     return new Card(
+      color:  Theme.of(context).primaryColorLight,
         elevation: 5.0,
         child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
