@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/model/CelebrityInfo.dart';
 import 'package:flutter_app/CelebrityDetailScreen.dart';
+import 'package:flutter_app/ScrollingImageDetailer.dart';
 
 class CelebrityWidget extends StatelessWidget {
   CelebrityInfo info;
@@ -59,7 +60,12 @@ class CelebrityWidget extends StatelessWidget {
                                             new CelebrityDetailScreen(
                                                 info: info,
                                                 onPressed: () {
-                                                  Navigator.pop(context);
+                                                  Navigator.push(
+                                                      context,
+                                                      new MaterialPageRoute(
+                                                          builder: (context) =>
+                                                          new ScrollingImageDetailer()));
+//                                                  Navigator.pop(context);
                                                 })));
                               }) : new Container()///Empty container if isVisible flag false
                       ),
@@ -67,7 +73,9 @@ class CelebrityWidget extends StatelessWidget {
                   ]))
             ]));
   }
-
+//  onPressed: () {
+//  Navigator.pop(context);
+//  }
   /// It gives current Date and Time
   String getCurrentDateTimeNow(int millisecondsSinceEpoch) {
 //    var now = new DateTime.now();

@@ -52,10 +52,10 @@ class CelebrityInfo {
             .loadString('lib/sample_response/celebrity_mock_response.json'),
         builder: (context, celebrityInfo) {
           var data = json.encode(celebrityInfo.data.toString());
-          var data_length = data.length;
+          var dataLength = data.length;
           debugPrint('CelebrityInfo.fromJsonResponse data: $data');
           debugPrint(
-              'CelebrityInfo.fromJsonResponse data_length: $data_length');
+              'CelebrityInfo.fromJsonResponse data_length: $dataLength');
           debugPrint(
               'CelebrityInfo.fromJsonResponse loadAsset(): $loadAsset()');
         });

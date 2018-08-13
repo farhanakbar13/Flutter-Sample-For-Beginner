@@ -29,7 +29,7 @@ class CelebrityDetailScreen extends StatelessWidget {
                     child: new RaisedButton(
                       padding: const EdgeInsets.all(15.0),
                       onPressed: onPressed,
-                      child: new Text('Go back!'),
+                      child: new Text('Show Scroll page'),
                     )),
               ]),
         ));

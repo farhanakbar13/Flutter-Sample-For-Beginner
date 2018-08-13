@@ -28,6 +28,7 @@ flutter:
 
   assets:
     - lib/sample_response/celebrity_mock_response.json
+    - images/lord_shiva_animated_hd_wallpapers.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
